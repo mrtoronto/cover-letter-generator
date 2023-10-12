@@ -1,0 +1,57 @@
+About the job
+About Us
+
+Flagship Pioneering is a biotechnology company that invents and builds platform companies that change the world. We bring together the greatest scientific minds with entrepreneurial company builders and assemble the capital to allow them to take courageous leaps. Those big leaps in human health and sustainability exponentially accelerate scientific progress in areas ranging from cancer detection and treatment to nature-positive agriculture. 
+
+ What sets Flagship apart is our ability to advance biotechnology by uniting life science innovation, company creation, and capital investment under one roof in a way that is largely without precedent. Our scientific founders, entrepreneurial leaders, and professional capital managers are each aligned around an institutionalized process that enables us to innovate and transform for the benefit of people and planet. 
+
+Many of the companies Flagship has founded have addressed humanity’s most urgent challenges: vaccinating billions of people against COVID-19, curing intractable diseases, improving human health, preempting illness, and feeding the world by improving the resiliency and sustainability of agriculture. 
+
+Flagship has been recognized twice on FORTUNE’s “Change the World” list, an annual ranking of companies that have made a positive social and environmental impact through activities that are part of their core business strategies, and has been twice named to Fast Company’s annual list of the World’s Most Innovative Companies.
+
+Pioneering Intelligence (PI) is an initiative focused on AI/ML based scientific innovation within Flagship. Within PI, our Labs group builds new and experimental AI/ML models with the goal of creating platforms that can accelerate scientific discovery. We are a team of machine learning scientists and engineers working within an ecosystem of domain experts and entrepreneurs. We tackle foundational ML challenges and apply those solutions to address core problems in life sciences and beyond.
+
+Project Snapshot: AI Biologist
+
+What if we could build an AI Biologist with:
+
+Near-human reasoning over scientific knowledge
+Super-human ability to process and integrate multiple data modalities
+Super-human ability to run and interpret virtual (in silico) experiments
+
+We are building on emergent capabilities of foundation models such as multi-step reasoning (LLMs), multi-modal data integration (aligned latents), and few-shot physical property prediction (protein foundation models). Some of our efforts in this space include:
+
+Building lifelong-learning systems comprised of foundation models and rich feedback mechanisms, tasked with solving complex scientific problems
+Improving the underlying biological foundation models, with a specific focus on the kinds of heterogenous, multimodal data omnipresent in biology
+
+The ML Engineer Role
+
+As part of the PI Labs team, ML Engineers develop the infrastructure that underlies much of our work and work closely with our ML Scientists to help advance our scientific projects.
+
+Key Responsibilities
+
+Our ML Engineers are responsible for:
+
+Building infrastructure to accelerate or enable ML research
+Conducting low-level research to improve the efficiency and scaling of fundamental ML tools
+Working with our ML scientists to scale and interpret experiments
+
+Requirements
+
+2+ years industry experience in ML Ops or equivalent. 
+Fluency with AWS, GCP, or similar cloud-computing services. 
+Fluency in python and standard ML tools (e.g. PyTorch, PyG, etc.). 
+Experience with containerization and task orchestration tools (e.g. Docker, Kubernetes, Slurm)
+Motivated and team oriented, with an ability to thrive in a multidisciplinary environment. 
+Ability to independently plan and implement long-term ML engineering projects, while maintaining close communication with team members. 
+Excellent collaboration skills. Must be able to think independently and contribute to an active intellectual environment. 
+
+Preferred experience:
+
+Experience with a wide range of DL models (GANs, diffusion models, large language models, etc…), and the intricacies of managing experiments
+Familiarity with ETL pipelines for large datasets, and workflow managers (e.g. AirFlow, Prefect, etc…)
+Experience working on deep scientific problems in a group setting
+
+Flagship Pioneering and our ecosystem companies are committed to equal employment opportunity regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity or Veteran status.
+
+At Flagship, we recognize there is no perfect candidate. If you have some of the experience listed above but not all, please apply anyway. Experience comes in many forms, skills are transferable, and passion goes a long way. We are dedicated to building diverse and inclusive teams and look forward to learning more about your unique background.

@@ -1,0 +1,121 @@
+MATTHEW TORONTO
+Berkeley, CA 94704
+508-439-1180     Matt.toronto97@gmail.com
+https://github.com/mrtoronto
+
+https://www.linkedin.com/in/matthewtoronto/
+
+EXPERIENCE
+Machine Learning Engineer, Evaluate.market, Boston, MA	01/21 – 09/23
+- Created GPT-4 chatbot that live-traded NFTs with users given context from chat, inventories and asset values
+- Built wallet similarity model that used assets held by users to prioritize user matching for NFT trades
+- Created two valuation model pipelines and applied them to 15+ collections of NFTs
+- Used GPT-3 and Stable Diffusion models to generate thousands of descriptions and spritesheets for NFT collection
+- Started part-time and transitioned to full-time in July 2022
+
+Data Scientist, Supportiv, Berkeley CA			     		   01/22 – 06/22
+- Junior Data Scientist, Supportiv					   04/20 – 12/21
+- Trained, deployed and maintained BERT models for crisis and teenager classification
+- Deployed models with Google Cloud Functions
+- Integrated deployed models into Supportiv’s product using authenticated HTTPS endpoints
+- Trained first models with historic data and updated models with moderator labels over time
+- Automated the training and deploy of user similarity and document retrieval models made by Senior MLE
+- Re-built content library ETL process adding audio transcription, link validation, text scraping and improved logging
+- Built out and maintained robust reporting infrastructure and ad-hoc analytics framework
+- Ran ad-hoc analyses for CTO and CEO to collect metrics for investor and client decks
+
+Data Engineer – Co-op, Iora Health, Boston, MA	01/19 – 05/20
+- Built proof-of-concept ML pipelines to predict patient’s medical expenses and risk of admission
+- Created tools and visualizations for clinical and technical peers using Python, SQL and Looker
+- Wrote and improved ETL processes for insurance and clinical data
+- Improved efficiency of legacy HL7 ETL process by ~2 orders of magnitude
+
+Market Research Intern, ioVita, Boston, MA	09/18 – 12/18
+
+Research Assistant, Gabuzda Lab, Harvard Medical School, Boston, MA	09/17 – 12/17
+
+Microbiology Lab Assistant – Co-op, Evelo Biosciences, Cambridge, MA	01/17 – 08/17
+- Created complex Visual Basic macros to automate high-dimensional time-series data analyses
+- Advised peers in formatting, visualizing and building dashboards with immunological data in Tableau
+
+
+
+EDUCATION
+Northeastern University, Boston, MA
+MS Bioinformatics – 01/2018 - 12/2020
+3.9 GPA
+BS Biology – 09/2015 - 05/2020
+3.7 GPA
+Relevant Coursework:
+	Complex Networks and their Applications, Real Analysis, Statistics and Stochastic Processes, Differential Equations & Linear Algebra, Calculus 3, Modern Physics
+
+Interests: Guitar, music production, cooking, skiing, running
+
+
+
+
+CERTIFICATIONS
+Statistics in R – Coursera
+Applied Data Science in Python – Coursera
+Advanced-Data Science with IBM – Coursera 
+Machine Learning – Coursera
+Deep Learning – Coursera 
+Machine Learning with TensorFlow on GCP – Coursera 
+SKILLS
+Languages: Python (sci-kit learn, Pytorch, HuggingFace, pandas, NumPy, seaborn, Keras), SQL, R, Solidity, Visual Basic, JavaScript, HTML, CSS
+Cloud Services: GCP App Engine, GCP Storage, GCP Cloud Functions, AWS EC2, AWS Sagemaker, AWS S3
+Other: Docker, NoSQL (Firebase), PostgresSQL, MySQL, Redshift, Looker, Tableau, HL7, PHI
+
+
+
+
+PROJECTS
+
+Web3HFT
+https://github.com/mrtoronto/web3_hft
+Created framework for making and evaluating trading strategies with the freqtrade library
+Setup logic to find assets worth watching
+Setup pipelines to run grid searches over strategy parameters
+Evaluated sets of parameters and deployed best parameters to live trading bot
+Consulted with trading experts and tried to distill their knowledge to automate it
+Pushed all metrics and logs to spreadsheet for manual inspection (example sheet)
+Preceded by a NEAT ETH model where I tried to use a genetic algorithm to generate strategies
+The genetic algo was too much and not enough at the same time
+
+Lycan Protocol Developer
+https://github.com/mrtoronto/lycan-protocol-contract
+https://etherscan.io/address/0xaed8f91df327d9db27e5b5e0f11a0a001c727ce0
+Only technical team member for launch of ERC-721A token
+Wrote, tested and deployed smart contracts for token
+Generated 6,600 unique images by layering sets of 10-100 trait images
+Generated and organized metadata associated with trait images for each asset
+Setup and executed decentralized payment methods for team
+
+Forms Discord Bot Engineer
+https://github.com/mrtoronto/forms-discord-bot
+Created Wavey, a GPT-4 powered discord bot with different personalities, commands and modes
+Wavey:
+Is sarcastic and borderline rude but always hilarious
+Created greeting channels and greeted each user that joined with a VIP link
+Occasionally went into roast mode for a few hours
+Helped server moderators handle normal moderation tasks
+Bot was deployed to a digital ocean server and worked using discord.py and OpenAI API’s
+
+NFT Shazam
+https://github.com/mrtoronto/nft-shazam
+Created a system to let users find relevant NFT metadata from an image or screenshot
+System embedded tens of thousands of NFT images using alexnet and stored embeds in a FAISS index
+System processed and stored associated metadata for all embedded NFTs
+Queries sent to the system were embedded the same way and most similar stored assets were returned
+
+Lyrical Clustering
+https://github.com/mrtoronto/lyrical_clustering
+Embedded lyrics from some of my favorite artists and plotted them to see who was semantically similar
+Used S-BERT model to embed lyrics then used PCA to reduce the embeddings to 2 dimensions
+Scraped lyrics from genius and collected images for the plots manually
+
+Podcast Semantic Search
+https://github.com/mrtoronto/podcast-semantic-search
+Built system to ingest, transcribe and run semantic queries on podcast transcripts
+Used Huggingface Wav2Vec model to transcribe text
+Tested both TF-IDF and DPR for relevant passage selection

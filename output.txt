@@ -1,0 +1,12 @@
+Of course, here's a more concise version of the cover letter:
+
+```Dear Hiring Team at Flagship Pioneering,
+
+With my background in biology and bioinformatics coupled with experience as a Machine Learning Engineer, I am confident about fitting into your ML Engineer role. My tenure at Evaluate.market and Supportiv enabled me to build solid ETL processes for large datasets while tackling complex scientific problems. These experiences equip me to contribute effectively towards building infrastructure that accelerates your ML research.
+
+At Evaluate.market, I developed a GPT-4 chatbot that strategically traded NFTs using context data which required collaborative efforts across teams. Meanwhile, deploying BERT models for crisis classification via Google Cloud Functions at Supportiv led to substantial product improvements. Given this blend of industry experience and familiarity with various DL models like PyTorch should enable efficient project implementation within your team.
+
+I appreciate you considering my application - Contributing towards AI/ML-based scientific innovation is compelling and it would be great to further discuss how we can mutually benefit from this potential collaboration.
+
+Best regards,
+Matt Toronto```

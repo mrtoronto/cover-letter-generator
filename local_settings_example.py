@@ -1,0 +1,1 @@
+OPENAI_API_KEY_GPT4 = "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"

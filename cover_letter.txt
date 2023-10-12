@@ -1,0 +1,14 @@
+```
+Dear Hiring Team at ZORA,
+
+I am excited to apply for the Data Scientist role. With my blend of experience in machine learning, data analysis and blockchain technology, I believe I can make a significant impact on your team.
+
+At Evaluate.market and Supportiv, I honed my skills in model building, creating efficient ETL processes and developing comprehensive analytics frameworks. Notably, I developed a wallet similarity model and an NFT trading chatbot utilizing Python and SQL for manipulation, analysis and modeling tasks. These experiences allow me to understand intricate product datasets enabling effective decision making across various departments.
+
+In addition to strong technical competencies, my passion for NFTs amplifies my readiness for this position. My previous work with ERC721 tokens combined with proficiency in statistical approaches positions me as an ideal candidate able to drive growth within ZORA's creator-focused vision.
+
+Thank you for considering my application. The opportunity to contribute towards shaping ZORA’s data culture is exhilarating; eager would be an understatement when looking forward to discussing how we could mutually benefit from this potential association.
+
+Best regards,
+Matt Toronto
+```

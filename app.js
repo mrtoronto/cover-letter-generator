@@ -2,7 +2,8 @@
 const STORAGE_KEYS = {
     API_KEY: 'openai_api_key',
     RESUME: 'resume_template',
-    COVER_LETTER: 'cover_letter_template'
+    COVER_LETTER: 'cover_letter_template',
+    CUSTOM_INSTRUCTIONS: 'custom_instructions'
 };
 
 // Add default file contents as constants
@@ -29,7 +30,15 @@ About Us
 
 Flagship Pioneering is a biotechnology company that invents and builds platform companies that change the world. We bring together the greatest scientific minds with entrepreneurial company builders and assemble the capital to allow them to take courageous leaps.
 
-[... rest of job description content ...]`
+[... rest of job description content ...]`,
+
+    customInstructions: `- Make sure to emphasize my role at ______.
+- Mention that I want to work on _____ and learn ______.
+- Do not use the following words and phrases:
+    - Thrilled
+    - Overjoyed
+    - Synergy
+    - Tenure`
 };
 
 // Load saved data on page load
@@ -42,6 +51,7 @@ function loadSavedData() {
     const apiKey = localStorage.getItem(STORAGE_KEYS.API_KEY);
     const resume = localStorage.getItem(STORAGE_KEYS.RESUME);
     const coverLetter = localStorage.getItem(STORAGE_KEYS.COVER_LETTER);
+    const customInstructions = localStorage.getItem(STORAGE_KEYS.CUSTOM_INSTRUCTIONS);
 
     if (apiKey) {
         document.getElementById('apiKey').value = apiKey;
@@ -52,6 +62,7 @@ function loadSavedData() {
     
     if (resume) document.getElementById('resumeTemplate').value = resume;
     if (coverLetter) document.getElementById('coverLetterTemplate').value = coverLetter;
+    if (customInstructions) document.getElementById('customInstructions').value = customInstructions;
 }
 
 // Save API Key
@@ -86,6 +97,17 @@ function saveCoverLetter() {
     }
     localStorage.setItem(STORAGE_KEYS.COVER_LETTER, coverLetter);
     alert('Cover letter template saved successfully!');
+}
+
+// Save Custom Instructions
+function saveCustomInstructions() {
+    const customInstructions = document.getElementById('customInstructions').value.trim();
+    if (!customInstructions) {
+        alert('Please enter custom instructions');
+        return;
+    }
+    localStorage.setItem(STORAGE_KEYS.CUSTOM_INSTRUCTIONS, customInstructions);
+    alert('Custom instructions saved successfully!');
 }
 
 // Copy generated cover letter to clipboard
@@ -155,9 +177,7 @@ Make sure to not overstate the user's experience and refer to the resume and job
     
 Output the entire cover letter to the user so they can copy and paste it. Be concise, engaging and professional. 
 
-Do not write more than 3 concise paragraphs.
-
-${customInstructions ? `Additional Instructions:\n${customInstructions}` : ''}`
+Do not write more than 3 concise paragraphs.`
                     },
                     {
                         role: 'user',
@@ -167,6 +187,10 @@ ${customInstructions ? `Additional Instructions:\n${customInstructions}` : ''}`
                         role: 'user',
                         content: `Here's an example cover letter I wrote for another job I applied for:\n\n${coverLetter}`
                     },
+                    ...(customInstructions.trim() ? [{
+                        role: 'user',
+                        content: `Please follow these additional instructions when writing the cover letter:\n\n${customInstructions}`
+                    }] : []),
                     {
                         role: 'user',
                         content: `Please write me a 3 paragraph cover letter for this job:\n\n${jobDescription}`
@@ -238,6 +262,10 @@ function useDefaultFile(type) {
         case 'jobDescription':
             content = DEFAULT_FILES.jobDescription;
             targetElement = 'jobDescription';
+            break;
+        case 'customInstructions':
+            content = DEFAULT_FILES.customInstructions;
+            targetElement = 'customInstructions';
             break;
         default:
             return;

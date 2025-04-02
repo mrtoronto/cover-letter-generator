@@ -97,6 +97,16 @@
                     <textarea id="customInstructions" placeholder="Example: 'Keep the tone casual and friendly. Focus on my leadership experience. Avoid using the word 'passionate'...'" 
                             class="w-full p-2 border rounded"></textarea>
                 </div>
+                <div class="flex gap-2 mt-4">
+                    <button onclick="saveCustomInstructions()" 
+                            class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        Save Instructions
+                    </button>
+                    <button onclick="useDefaultFile('customInstructions')" 
+                            class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
+                        Use Default
+                    </button>
+                </div>
             </div>
 
             <!-- Job Description Section -->

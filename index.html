@@ -25,54 +25,62 @@
             
             <!-- API Key Section -->
             <div class="bg-white rounded-lg shadow-md p-6 mb-6 content-section api-key-section">
-                <h2 class="text-2xl font-semibold text-gray-700 mb-4">OpenAI API Key</h2>
-                <div class="flex items-center">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-2">OpenAI API Key</h2>
+                <p class="text-sm text-gray-600 mb-4">Enter your OpenAI API key to use the generator. You can get one from your OpenAI account dashboard.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
                     <input type="password" id="apiKey" placeholder="Enter your OpenAI API key" 
-                           class="flex-1 p-2 border rounded mr-4">
-                    <button onclick="saveApiKey()" 
-                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mr-2">
-                        Save Key
-                    </button>
-                    <button onclick="removeApiKey()" 
-                            class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
-                        Remove Key
-                    </button>
+                           class="w-full p-2 border rounded">
+                    <div class="flex gap-2">
+                        <button onclick="saveApiKey()" 
+                                class="flex-1 sm:flex-none bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                            Save Key
+                        </button>
+                        <button onclick="removeApiKey()" 
+                                class="flex-1 sm:flex-none bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                            Remove Key
+                        </button>
+                    </div>
                 </div>
                 <p class="text-sm text-gray-500 mt-2">Your API key is stored locally and never sent to any server except OpenAI.</p>
             </div>
 
             <!-- Templates Section -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6 content-section">
-                <!-- Resume Template -->
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Default Resume</h2>
-                    <div class="textarea-container">
-                        <textarea id="resumeTemplate" placeholder="Paste your resume here..." 
-                                class="w-full p-2 border rounded"></textarea>
+            <div class="content-section">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <!-- Resume Template -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">Default Resume</h2>
+                        <p class="text-sm text-gray-600 mb-4">Paste your resume here. This will be used as a reference for your experience and skills when generating cover letters.</p>
+                        <div class="textarea-container">
+                            <textarea id="resumeTemplate" placeholder="Paste your resume here..." 
+                                    class="w-full p-2 border rounded"></textarea>
+                        </div>
+                        <button onclick="saveResume()" 
+                                class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                            Save Resume
+                        </button>
                     </div>
-                    <button onclick="saveResume()" 
-                            class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                        Save Resume
-                    </button>
-                </div>
 
-                <!-- Cover Letter Template -->
-                <div class="bg-white rounded-lg shadow-md p-6">
-                    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Example Cover Letter</h2>
-                    <div class="textarea-container">
-                        <textarea id="coverLetterTemplate" placeholder="Paste an example cover letter here..." 
-                                class="w-full p-2 border rounded"></textarea>
+                    <!-- Cover Letter Template -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-2xl font-semibold text-gray-700 mb-2">Example Cover Letter</h2>
+                        <p class="text-sm text-gray-600 mb-4">Paste cover letters you've written before. These will help match your writing style and tone in generated letters. One is enough but multiple is better.</p>
+                        <div class="textarea-container">
+                            <textarea id="coverLetterTemplate" placeholder="Paste an example cover letter here..." 
+                                    class="w-full p-2 border rounded"></textarea>
+                        </div>
+                        <button onclick="saveCoverLetter()" 
+                                class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                            Save Cover Letter
+                        </button>
                     </div>
-                    <button onclick="saveCoverLetter()" 
-                            class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
-                        Save Cover Letter
-                    </button>
                 </div>
             </div>
 
             <!-- Job Description Section -->
             <div class="bg-white rounded-lg shadow-md p-6 mb-6 content-section">
-                <h2 class="text-2xl font-semibold text-gray-700 mb-4">Job Description</h2>
+                <h2 class="text-2xl font-semibold text-gray-700 mb-2">Job Description</h2>
+                <p class="text-sm text-gray-600 mb-4">Paste the job description you're applying for. The generator will tailor your cover letter to match the job requirements.</p>
                 <div class="textarea-container">
                     <textarea id="jobDescription" placeholder="Paste the job description here..." 
                             class="w-full p-2 border rounded"></textarea>
@@ -85,7 +93,8 @@
 
             <!-- Generated Cover Letter Section -->
             <div class="bg-white rounded-lg shadow-md p-6 content-section">
-                <h2 class="text-2xl font-semibold text-gray-700 mb-4">Generated Cover Letter</h2>
+                <h2 class="text-2xl font-semibold text-gray-700 mb-2">Generated Cover Letter</h2>
+                <p class="text-sm text-gray-600 mb-4">Your personalized cover letter will appear here. Review it, make any needed adjustments, then copy it to your clipboard.</p>
                 <div class="textarea-container">
                     <textarea id="generatedCoverLetter" placeholder="Your generated cover letter will appear here..." 
                             class="w-full p-2 border rounded" readonly></textarea>

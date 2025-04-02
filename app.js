@@ -60,6 +60,10 @@ function toggleApiKeyVisibility() {
 // Load saved data on page load
 document.addEventListener('DOMContentLoaded', () => {
     loadSavedData();
+    
+    // Add event listener for generate button
+    const generateButton = document.getElementById('generateButton');
+    generateButton.addEventListener('click', generateCoverLetter);
 });
 
 // Load data from localStorage
@@ -136,6 +140,13 @@ function copyToClipboard() {
 
 // Generate Cover Letter
 async function generateCoverLetter() {
+    const generateButton = document.getElementById('generateButton');
+    
+    // Prevent multiple clicks
+    if (generateButton.disabled) {
+        return;
+    }
+
     const apiKey = localStorage.getItem(STORAGE_KEYS.API_KEY);
     if (!apiKey) {
         alert('Please save your OpenAI API key first');
@@ -152,10 +163,13 @@ async function generateCoverLetter() {
         return;
     }
 
-    const generateButton = document.querySelector('button[onclick="generateCoverLetter()"]');
     const originalText = generateButton.textContent;
     generateButton.textContent = 'Generating...';
     generateButton.disabled = true;
+    generateButton.classList.add('opacity-50', 'cursor-not-allowed');
+
+    // Clear existing generated text
+    document.getElementById('generatedCoverLetter').value = '';
 
     try {
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -231,8 +245,10 @@ Do not write more than 3 concise paragraphs.`
     } catch (error) {
         alert(`Error generating cover letter: ${error.message}`);
     } finally {
+        // Always restore the button state, even if there's an error
         generateButton.textContent = originalText;
         generateButton.disabled = false;
+        generateButton.classList.remove('opacity-50', 'cursor-not-allowed');
     }
 }
 

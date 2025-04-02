@@ -2,8 +2,34 @@
 const STORAGE_KEYS = {
     API_KEY: 'openai_api_key',
     RESUME: 'resume_template',
-    COVER_LETTER: 'cover_letter_template',
-    CUSTOM_INSTRUCTIONS: 'custom_instructions'
+    COVER_LETTER: 'cover_letter_template'
+};
+
+// Add default file contents as constants
+const DEFAULT_FILES = {
+    resume: `MATTHEW TORONTO
+Berkeley, CA 94704
+508-439-1180     Matt.toronto97@gmail.com
+https://github.com/mrtoronto
+
+https://www.linkedin.com/in/matthewtoronto/
+
+EXPERIENCE
+Machine Learning Engineer, Evaluate.market, Boston, MA	01/21 – 09/23
+[... rest of resume content ...]`,
+
+    coverLetter: `Dear Hiring Team at ZORA,
+
+I am excited to apply for the Data Scientist role. With my blend of experience in machine learning, data analysis and blockchain technology, I believe I can make a significant impact on your team.
+
+[... rest of cover letter content ...]`,
+
+    jobDescription: `About the job
+About Us
+
+Flagship Pioneering is a biotechnology company that invents and builds platform companies that change the world. We bring together the greatest scientific minds with entrepreneurial company builders and assemble the capital to allow them to take courageous leaps.
+
+[... rest of job description content ...]`
 };
 
 // Load saved data on page load
@@ -16,7 +42,6 @@ function loadSavedData() {
     const apiKey = localStorage.getItem(STORAGE_KEYS.API_KEY);
     const resume = localStorage.getItem(STORAGE_KEYS.RESUME);
     const coverLetter = localStorage.getItem(STORAGE_KEYS.COVER_LETTER);
-    const customInstructions = localStorage.getItem(STORAGE_KEYS.CUSTOM_INSTRUCTIONS);
 
     if (apiKey) {
         document.getElementById('apiKey').value = apiKey;
@@ -27,7 +52,6 @@ function loadSavedData() {
     
     if (resume) document.getElementById('resumeTemplate').value = resume;
     if (coverLetter) document.getElementById('coverLetterTemplate').value = coverLetter;
-    if (customInstructions) document.getElementById('customInstructions').value = customInstructions;
 }
 
 // Save API Key
@@ -62,13 +86,6 @@ function saveCoverLetter() {
     }
     localStorage.setItem(STORAGE_KEYS.COVER_LETTER, coverLetter);
     alert('Cover letter template saved successfully!');
-}
-
-// Save Custom Instructions
-function saveCustomInstructions() {
-    const instructions = document.getElementById('customInstructions').value.trim();
-    localStorage.setItem(STORAGE_KEYS.CUSTOM_INSTRUCTIONS, instructions);
-    alert('Custom instructions saved successfully!');
 }
 
 // Copy generated cover letter to clipboard
@@ -140,8 +157,95 @@ Output the entire cover letter to the user so they can copy and paste it. Be con
 
 Do not write more than 3 concise paragraphs.
 
-${customInstructions ? `Additional Instructions from the user:\n${customInstructions}` : ''}`
+${customInstructions ? `Additional Instructions:\n${customInstructions}` : ''}`
                     },
                     {
                         role: 'user',
                         content: `Here's my resume:\n\n${resume}`
+                    },
+                    {
+                        role: 'user',
+                        content: `Here's an example cover letter I wrote for another job I applied for:\n\n${coverLetter}`
+                    },
+                    {
+                        role: 'user',
+                        content: `Please write me a 3 paragraph cover letter for this job:\n\n${jobDescription}`
+                    }
+                ],
+                temperature: 0.2,
+                max_tokens: 1000,
+                frequency_penalty: 0.2,
+                presence_penalty: 0.2
+            })
+        });
+
+        const data = await response.json();
+        
+        if (data.error) {
+            throw new Error(data.error.message);
+        }
+
+        const generatedText = data.choices[0].message.content.trim();
+        document.getElementById('generatedCoverLetter').value = generatedText;
+
+    } catch (error) {
+        alert(`Error generating cover letter: ${error.message}`);
+    } finally {
+        generateButton.textContent = originalText;
+        generateButton.disabled = false;
+    }
+}
+
+// Add this new function for removing API key
+function removeApiKey() {
+    localStorage.removeItem(STORAGE_KEYS.API_KEY);
+    document.getElementById('apiKey').value = '';
+    hideContentSections();
+    alert('API key removed successfully!');
+}
+
+// Add this function to control content visibility
+function hideContentSections() {
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach(section => {
+        if (!section.classList.contains('api-key-section')) {
+            section.style.display = 'none';
+        }
+    });
+}
+
+function showContentSections() {
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach(section => {
+        section.style.display = 'block';
+    });
+}
+
+// Modify the useDefaultFile function to use the constants
+function useDefaultFile(type) {
+    let content;
+    let targetElement;
+    
+    switch(type) {
+        case 'resume':
+            content = DEFAULT_FILES.resume;
+            targetElement = 'resumeTemplate';
+            break;
+        case 'coverLetter':
+            content = DEFAULT_FILES.coverLetter;
+            targetElement = 'coverLetterTemplate';
+            break;
+        case 'jobDescription':
+            content = DEFAULT_FILES.jobDescription;
+            targetElement = 'jobDescription';
+            break;
+        default:
+            return;
+    }
+
+    try {
+        document.getElementById(targetElement).value = content;
+    } catch (error) {
+        alert(`Error loading default ${type}: ${error.message}`);
+    }
+} 

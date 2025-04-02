@@ -1,45 +1,69 @@
-# Getting Started
+# Cover Letter Generator
 
-Use VSCode to run the code. Add all these files to a folder then open the folder in VSCode.
+This tool helps generate personalized cover letters using GPT-4. It analyzes your resume and an example cover letter to match your writing style, then generates a tailored cover letter based on the job description you provide.
 
-This will let you easily edit the text files, run the code and view the output all in one place.
+## Web Version (GitHub Pages)
 
-## Installation
+You can use the web version of this tool directly at: `https://[your-github-username].github.io/cover-letter-generator`
 
-Just setup a python environment and install the requirements.
+To use the web version:
 
+1. Visit the website
+2. Enter your OpenAI API key (stored only in your browser's local storage)
+3. Paste your resume and an example cover letter (these will be saved for future use)
+4. Paste the job description you want to create a cover letter for
+5. Click "Generate Cover Letter"
+
+Your data is stored locally in your browser and is only sent to OpenAI's API for generation.
+
+## Local Notebook Version
+
+If you prefer to run the tool locally using Jupyter Notebook:
+
+1. Clone this repository:
 ```bash
-python -m venv venv
-source venv/bin/activate
+git clone https://github.com/[your-username]/cover-letter-generator.git
+cd cover-letter-generator
+```
+
+2. Install the required packages:
+```bash
 pip install -r requirements.txt
 ```
 
-## Setup
+3. Create a `local_settings.py` file with your OpenAI API key:
+```python
+OPENAI_API_KEY_GPT4 = "your-api-key-here"
+```
 
-- Add your resume to the resume.txt file
-    - Just copy and paste the PDF. Don't worry about formatting unless its terribly messed up.
-- Add an example cover letter to the cover_letter.txt file
-    - GPT copies this format a bit so make sure its a good one
-    - If GPT writes you a really good one, you can replace this in the future
+4. Update the following files with your information:
+- `resume.txt`: Your resume
+- `cover_letter.txt`: An example cover letter you've written
+- `job_description.txt`: The job description you want to create a cover letter for
 
-## Running the app for a job
+5. Run the Jupyter notebook:
+```bash
+jupyter notebook write.ipynb
+```
 
-Add the job description to the job_description.txt file.
+## Features
 
-Open `write.ipynb` in Jupyter Notebook and run the cells.
+- Uses GPT-4 for high-quality cover letter generation
+- Maintains your writing style by analyzing an example cover letter
+- Generates concise, three-paragraph cover letters
+- Ensures relevance by analyzing both your resume and the job description
+- Avoids overstating qualifications or making up experiences
 
-Cover letter will appear in output.txt when its done.
+## Privacy
 
-## What does the app do
+- The web version stores all data locally in your browser
+- Your API key and personal information are never stored on any server
+- Data is only sent to OpenAI's API for cover letter generation
 
-The app will write a cover letter using the JD, your resume and an example of a cover letter you've written previously.
+## Contributing
 
-Its told to keep things concise and in a 3 paragraph format which it normally listens to. 
+Feel free to open issues or submit pull requests if you have suggestions for improvements.
 
-It does two loops, one to generate the cover letter and one to edit it. You could add additional loops but they will have diminishing returns.
+## License
 
-To add additional loops, just add more copies of this line to the bottom of the last code cell in the notebook.
-
-`output = update_letter(new_cover_letter=output)`
-
-Each of these takes in a letter, updates it and outputs a new letter. 
+This project is open source and available under the MIT License.

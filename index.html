@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cover Letter Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .min-h-screen {
+            min-height: 100vh;
+        }
+        .textarea-container {
+            height: 300px;
+        }
+        textarea {
+            resize: none;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen p-6">
+        <div class="max-w-6xl mx-auto">
+            <h1 class="text-4xl font-bold text-gray-800 mb-8">Cover Letter Generator</h1>
+            
+            <!-- API Key Section -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">OpenAI API Key</h2>
+                <div class="flex items-center">
+                    <input type="password" id="apiKey" placeholder="Enter your OpenAI API key" 
+                           class="flex-1 p-2 border rounded mr-4">
+                    <button onclick="saveApiKey()" 
+                            class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                        Save Key
+                    </button>
+                </div>
+                <p class="text-sm text-gray-500 mt-2">Your API key is stored locally and never sent to any server except OpenAI.</p>
+            </div>
+
+            <!-- Templates Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <!-- Resume Template -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Default Resume</h2>
+                    <div class="textarea-container">
+                        <textarea id="resumeTemplate" placeholder="Paste your resume here..." 
+                                class="w-full p-2 border rounded"></textarea>
+                    </div>
+                    <button onclick="saveResume()" 
+                            class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        Save Resume
+                    </button>
+                </div>
+
+                <!-- Cover Letter Template -->
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-2xl font-semibold text-gray-700 mb-4">Example Cover Letter</h2>
+                    <div class="textarea-container">
+                        <textarea id="coverLetterTemplate" placeholder="Paste an example cover letter here..." 
+                                class="w-full p-2 border rounded"></textarea>
+                    </div>
+                    <button onclick="saveCoverLetter()" 
+                            class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                        Save Cover Letter
+                    </button>
+                </div>
+            </div>
+
+            <!-- Job Description Section -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">Job Description</h2>
+                <div class="textarea-container">
+                    <textarea id="jobDescription" placeholder="Paste the job description here..." 
+                            class="w-full p-2 border rounded"></textarea>
+                </div>
+                <button onclick="generateCoverLetter()" 
+                        class="mt-4 bg-blue-500 text-white px-6 py-3 rounded hover:bg-blue-600">
+                    Generate Cover Letter
+                </button>
+            </div>
+
+            <!-- Generated Cover Letter Section -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-4">Generated Cover Letter</h2>
+                <div class="textarea-container">
+                    <textarea id="generatedCoverLetter" placeholder="Your generated cover letter will appear here..." 
+                            class="w-full p-2 border rounded" readonly></textarea>
+                </div>
+                <button onclick="copyToClipboard()" 
+                        class="mt-4 bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600">
+                    Copy to Clipboard
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 

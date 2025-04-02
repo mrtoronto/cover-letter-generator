@@ -1,6 +1,6 @@
 # Cover Letter Generator
 
-A web-based tool that helps generate personalized cover letters using GPT-4. It analyzes your resume and an example cover letter to match your writing style, then generates a tailored cover letter based on the job description you provide.
+A web-based tool that helps generate personalized cover letters using GPT-4o. It analyzes your resume and an example cover letter to match your writing style, then generates a tailored cover letter based on the job description you provide.
 
 ## Live Demo
 
@@ -8,7 +8,7 @@ You can use this tool at: https://mrtoronto.github.io/cover-letter-generator/
 
 ## Features
 
-- **Smart Cover Letter Generation**: Uses GPT-4 to create personalized, relevant cover letters
+- **Smart Cover Letter Generation**: Uses GPT-4o to create personalized, relevant cover letters
 - **Three-Paragraph Format**: Generates concise cover letters with:
   - Introduction: Overview of experience and fit
   - Experience Details: Specific relevant experiences

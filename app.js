@@ -92,7 +92,7 @@ async function generateCoverLetter() {
                 'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: 'gpt-4',
+                model: 'gpt-4o',
                 messages: [
                     {
                         role: 'system',
@@ -135,10 +135,10 @@ Do not write more than 3 concise paragraphs.`
                         content: `Please write me a 3 paragraph cover letter for this job:\n\n${jobDescription}`
                     }
                 ],
-                temperature: 0.9,
+                temperature: 0.2,
                 max_tokens: 1000,
-                frequency_penalty: 1,
-                presence_penalty: 1
+                frequency_penalty: 0.2,
+                presence_penalty: 0.2
             })
         });
 

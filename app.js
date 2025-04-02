@@ -16,7 +16,13 @@ function loadSavedData() {
     const resume = localStorage.getItem(STORAGE_KEYS.RESUME);
     const coverLetter = localStorage.getItem(STORAGE_KEYS.COVER_LETTER);
 
-    if (apiKey) document.getElementById('apiKey').value = apiKey;
+    if (apiKey) {
+        document.getElementById('apiKey').value = apiKey;
+        showContentSections();
+    } else {
+        hideContentSections();
+    }
+    
     if (resume) document.getElementById('resumeTemplate').value = resume;
     if (coverLetter) document.getElementById('coverLetterTemplate').value = coverLetter;
 }
@@ -29,6 +35,7 @@ function saveApiKey() {
         return;
     }
     localStorage.setItem(STORAGE_KEYS.API_KEY, apiKey);
+    showContentSections();
     alert('API key saved successfully!');
 }
 
@@ -157,4 +164,29 @@ Do not write more than 3 concise paragraphs.`
         generateButton.textContent = originalText;
         generateButton.disabled = false;
     }
+}
+
+// Add this new function for removing API key
+function removeApiKey() {
+    localStorage.removeItem(STORAGE_KEYS.API_KEY);
+    document.getElementById('apiKey').value = '';
+    hideContentSections();
+    alert('API key removed successfully!');
+}
+
+// Add this function to control content visibility
+function hideContentSections() {
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach(section => {
+        if (!section.classList.contains('api-key-section')) {
+            section.style.display = 'none';
+        }
+    });
+}
+
+function showContentSections() {
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach(section => {
+        section.style.display = 'block';
+    });
 } 

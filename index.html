@@ -77,6 +77,20 @@
                 </div>
             </div>
 
+            <!-- Custom Instructions Section -->
+            <div class="bg-white rounded-lg shadow-md p-6 mb-6 content-section">
+                <h2 class="text-2xl font-semibold text-gray-700 mb-2">Custom Instructions</h2>
+                <p class="text-sm text-gray-600 mb-4">Add specific instructions for the AI about how to write your cover letter. You can specify tone (e.g. "be more formal"), exclude certain experiences, or emphasize specific skills. These instructions will directly guide the AI in generating your letter.</p>
+                <div class="textarea-container">
+                    <textarea id="customInstructions" placeholder="Example: 'Keep the tone formal and professional. Focus on my management experience. Don't mention my retail work.'" 
+                            class="w-full p-2 border rounded"></textarea>
+                </div>
+                <button onclick="saveCustomInstructions()" 
+                        class="mt-4 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+                    Save Instructions
+                </button>
+            </div>
+
             <!-- Job Description Section -->
             <div class="bg-white rounded-lg shadow-md p-6 mb-6 content-section">
                 <h2 class="text-2xl font-semibold text-gray-700 mb-2">Job Description</h2>

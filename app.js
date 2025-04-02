@@ -2,7 +2,8 @@
 const STORAGE_KEYS = {
     API_KEY: 'openai_api_key',
     RESUME: 'resume_template',
-    COVER_LETTER: 'cover_letter_template'
+    COVER_LETTER: 'cover_letter_template',
+    CUSTOM_INSTRUCTIONS: 'custom_instructions'
 };
 
 // Load saved data on page load
@@ -15,6 +16,7 @@ function loadSavedData() {
     const apiKey = localStorage.getItem(STORAGE_KEYS.API_KEY);
     const resume = localStorage.getItem(STORAGE_KEYS.RESUME);
     const coverLetter = localStorage.getItem(STORAGE_KEYS.COVER_LETTER);
+    const customInstructions = localStorage.getItem(STORAGE_KEYS.CUSTOM_INSTRUCTIONS);
 
     if (apiKey) {
         document.getElementById('apiKey').value = apiKey;
@@ -25,6 +27,7 @@ function loadSavedData() {
     
     if (resume) document.getElementById('resumeTemplate').value = resume;
     if (coverLetter) document.getElementById('coverLetterTemplate').value = coverLetter;
+    if (customInstructions) document.getElementById('customInstructions').value = customInstructions;
 }
 
 // Save API Key
@@ -61,6 +64,13 @@ function saveCoverLetter() {
     alert('Cover letter template saved successfully!');
 }
 
+// Save Custom Instructions
+function saveCustomInstructions() {
+    const instructions = document.getElementById('customInstructions').value.trim();
+    localStorage.setItem(STORAGE_KEYS.CUSTOM_INSTRUCTIONS, instructions);
+    alert('Custom instructions saved successfully!');
+}
+
 // Copy generated cover letter to clipboard
 function copyToClipboard() {
     const generatedText = document.getElementById('generatedCoverLetter');
@@ -80,6 +90,7 @@ async function generateCoverLetter() {
     const resume = document.getElementById('resumeTemplate').value.trim();
     const coverLetter = document.getElementById('coverLetterTemplate').value.trim();
     const jobDescription = document.getElementById('jobDescription').value.trim();
+    const customInstructions = document.getElementById('customInstructions').value.trim();
 
     if (!resume || !coverLetter || !jobDescription) {
         alert('Please fill in all required fields (resume, example cover letter, and job description)');
@@ -127,66 +138,10 @@ Make sure to not overstate the user's experience and refer to the resume and job
     
 Output the entire cover letter to the user so they can copy and paste it. Be concise, engaging and professional. 
 
-Do not write more than 3 concise paragraphs.`
+Do not write more than 3 concise paragraphs.
+
+${customInstructions ? `Additional Instructions from the user:\n${customInstructions}` : ''}`
                     },
                     {
                         role: 'user',
                         content: `Here's my resume:\n\n${resume}`
-                    },
-                    {
-                        role: 'user',
-                        content: `Here's an example cover letter I wrote for another job I applied for:\n\n${coverLetter}`
-                    },
-                    {
-                        role: 'user',
-                        content: `Please write me a 3 paragraph cover letter for this job:\n\n${jobDescription}`
-                    }
-                ],
-                temperature: 0.2,
-                max_tokens: 1000,
-                frequency_penalty: 0.2,
-                presence_penalty: 0.2
-            })
-        });
-
-        const data = await response.json();
-        
-        if (data.error) {
-            throw new Error(data.error.message);
-        }
-
-        const generatedText = data.choices[0].message.content.trim();
-        document.getElementById('generatedCoverLetter').value = generatedText;
-
-    } catch (error) {
-        alert(`Error generating cover letter: ${error.message}`);
-    } finally {
-        generateButton.textContent = originalText;
-        generateButton.disabled = false;
-    }
-}
-
-// Add this new function for removing API key
-function removeApiKey() {
-    localStorage.removeItem(STORAGE_KEYS.API_KEY);
-    document.getElementById('apiKey').value = '';
-    hideContentSections();
-    alert('API key removed successfully!');
-}
-
-// Add this function to control content visibility
-function hideContentSections() {
-    const contentSections = document.querySelectorAll('.content-section');
-    contentSections.forEach(section => {
-        if (!section.classList.contains('api-key-section')) {
-            section.style.display = 'none';
-        }
-    });
-}
-
-function showContentSections() {
-    const contentSections = document.querySelectorAll('.content-section');
-    contentSections.forEach(section => {
-        section.style.display = 'block';
-    });
-} 

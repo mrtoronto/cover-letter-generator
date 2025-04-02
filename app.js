@@ -41,6 +41,22 @@ Flagship Pioneering is a biotechnology company that invents and builds platform 
     - Tenure`
 };
 
+// Function to toggle API key visibility
+function toggleApiKeyVisibility() {
+    const apiKeyInput = document.getElementById('apiKey');
+    const eyeIcon = document.querySelector('.show-hide-btn i');
+    
+    if (apiKeyInput.type === 'password') {
+        apiKeyInput.type = 'text';
+        eyeIcon.classList.remove('fa-eye');
+        eyeIcon.classList.add('fa-eye-slash');
+    } else {
+        apiKeyInput.type = 'password';
+        eyeIcon.classList.remove('fa-eye-slash');
+        eyeIcon.classList.add('fa-eye');
+    }
+}
+
 // Load saved data on page load
 document.addEventListener('DOMContentLoaded', () => {
     loadSavedData();

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cover Letter Generator</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
     <style>
         .min-h-screen {
             min-height: 100vh;
@@ -15,6 +16,22 @@
         textarea {
             resize: none;
             height: 100%;
+        }
+        .api-key-container {
+            position: relative;
+        }
+        .show-hide-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+        }
+        .show-hide-btn:hover {
+            color: #333;
         }
     </style>
 </head>
@@ -28,16 +45,21 @@
                 <h2 class="text-2xl font-semibold text-gray-700 mb-2">OpenAI API Key</h2>
                 <p class="text-sm text-gray-600 mb-4">Enter your OpenAI API key to use the generator. You can get one from your OpenAI account dashboard.</p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <input type="password" id="apiKey" placeholder="Enter your OpenAI API key" 
-                           class="w-full p-2 border rounded">
-                    <div class="flex gap-2 sm:min-w-[200px]">
+                    <div class="api-key-container w-full">
+                        <input type="password" id="apiKey" placeholder="Enter your OpenAI API key" 
+                               class="w-full p-2 border rounded">
+                        <button onclick="toggleApiKeyVisibility()" class="show-hide-btn">
+                            <i class="far fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="flex gap-2 sm:min-w-[120px]">
                         <button onclick="saveApiKey()" 
                                 class="flex-1 sm:flex-1 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 whitespace-nowrap">
-                            Save Key
+                            <i class="fas fa-save"></i>
                         </button>
                         <button onclick="removeApiKey()" 
                                 class="flex-1 sm:flex-1 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 whitespace-nowrap">
-                            Remove Key
+                            <i class="fas fa-trash"></i>
                         </button>
                     </div>
                 </div>
